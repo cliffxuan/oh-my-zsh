@@ -1,13 +1,8 @@
-# af-magic.zsh-theme
+# cliff-mac.zsh-theme
 #
-# Author: Andy Fleming
-# URL: http://andyfleming.com/
-# Repo: https://github.com/andyfleming/oh-my-zsh
-# Direct Link: https://github.com/andyfleming/oh-my-zsh/blob/master/themes/af-magic.zsh-theme
+# Author: Cliff Xuan
 #
-# Created on:		June 19, 2012
-# Last modified on:	June 20, 2012
-
+# Created on:		6 Jan, 2013
 
 # color vars
 eval my_gray='$FG[237]'
@@ -27,8 +22,6 @@ $FG[032]%~\
 $(git_prompt_info) \
 ${return_code}$FG[105]%(!.#.»)%{$reset_color%} '
 PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
-
-
 
 # right prompt
 RPROMPT='$my_gray%n@%m[%*]%{$reset_color%}%'

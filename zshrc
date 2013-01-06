@@ -7,7 +7,7 @@ ZSH=$HOME/dev/oh-my-zsh
 # time that oh-my-zsh is loaded.
 if [[ $OSTYPE == darwin* ]]
 then
-    ZSH_THEME="af-magic"
+    ZSH_THEME="cliff-mac"
 else
     ZSH_THEME="dst"
 fi

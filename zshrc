@@ -9,7 +9,7 @@ if [[ $OSTYPE == darwin* ]]
 then
     ZSH_THEME="cliff-mac"
 else
-    ZSH_THEME="dst"
+    ZSH_THEME="cliff-linux"
 fi
 
 # Example aliases

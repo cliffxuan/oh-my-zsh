@@ -68,7 +68,11 @@ then
        }
     alias open=cygstart
 else
-    [[ -s $HOME/dev/virtualenvwrapper/virtualenvwrapper.sh ]] && source $HOME/dev/virtualenvwrapper/virtualenvwrapper.sh
+    if [[ -s $HOME/dev/virtualenvwrapper/virtualenvwrapper.sh ]] 
+    then
+        export VIRTUALENVWRAPPER_PYTHON=$(which python2.7)
+        source $HOME/dev/virtualenvwrapper/virtualenvwrapper.sh
+    fi
 fi
 
 #vim

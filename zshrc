@@ -8,6 +8,9 @@ ZSH=$HOME/dev/oh-my-zsh
 if [[ $OSTYPE == darwin* ]]
 then
     ZSH_THEME="cliff-mac"
+elif [[ $(cat /etc/*-release) =~ .*Ubuntu.* ]]
+then
+    ZSH_THEME="cliff-ubuntu"
 else
     ZSH_THEME="cliff-linux"
 fi

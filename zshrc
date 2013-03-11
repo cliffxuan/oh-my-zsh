@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/dev/oh-my-zsh
+ZSH=$(dirname $(readlink $0))
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/

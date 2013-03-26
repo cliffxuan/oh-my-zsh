@@ -80,3 +80,21 @@ fi
 
 #vim
 alias uvim="vim -u NONE"
+
+#GAE
+if [[ $OSTYPE == darwin* ]]
+then
+    GAE="/Applications/GoogleAppEngineLauncher.app"
+    GAE=$GAE"/Contents/Resources/GoogleAppEngine-default.bundle"
+    GAE=$GAE"/Contents/Resources/google_appengine"
+    if [[ -d $GAE ]]
+    then
+        export GAE
+        cdgae() {
+            cd $GAE
+        }
+    fi
+fi
+
+#tmux
+alias tmux="TERM=screen-256color-bce tmux"

@@ -99,3 +99,11 @@ fi
 
 #tmux
 alias tmux="TERM=screen-256color-bce tmux"
+
+#rvm
+if [[ -d $HOME/.rvm ]]
+then
+    PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+fi

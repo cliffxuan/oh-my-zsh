@@ -110,3 +110,32 @@ then
 
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 fi
+
+
+function _all_vms() {
+    reply=(`VBoxManage list vms | awk '{gsub("\"",""); print $1}'`)
+}
+
+function _running_vms() {
+    reply=(`VBoxManage list runningvms | awk '{gsub("\"",""); print $1}'`)
+}
+
+function startvm {
+    VBoxManage startvm $1 --type=headless
+}
+compctl -K _all_vms startvm
+
+function poweroffvm {
+    VBoxManage controlvm $1 poweroff
+}
+compctl -K _running_vms poweroffvm
+
+function controlvm {
+    VBoxManage controlvm $1 $2
+}
+compctl -K _all_vms controlvm
+
+function removevm {
+    VBoxManage unregistervm $1 --delete
+}
+compctl -K _all_vms removevm

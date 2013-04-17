@@ -11,6 +11,9 @@ then
 elif [[ $(cat /etc/*-release) =~ .*Ubuntu.* ]]
 then
     ZSH_THEME="cliff-ubuntu"
+elif [[ $(cat /etc/*-release) =~ .*Arch.* ]]
+then
+    ZSH_THEME="cliff-arch"
 else
     ZSH_THEME="cliff-linux"
 fi

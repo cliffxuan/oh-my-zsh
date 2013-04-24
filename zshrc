@@ -1,21 +1,28 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 if [[ $OSTYPE == darwin* ]]
 then
     ZSH_THEME="cliff-mac"
-elif [[ $(cat /etc/*-release) =~ .*Ubuntu.* ]]
-then
-    ZSH_THEME="cliff-ubuntu"
-elif [[ $(cat /etc/*-release) =~ .*Arch.* ]]
-then
-    ZSH_THEME="cliff-arch"
 else
-    ZSH_THEME="cliff-linux"
+    prof_file=$(print /etc/*-release) 2>/dev/null
+    if [[ -z $prof_file ]]
+    then
+        ZSH_THEME="cliff-linux"
+    else
+        if [[ $(cat $prof_file) =~ .*Ubuntu.* ]]
+        then
+            ZSH_THEME="cliff-ubuntu"
+        elif [[ $(cat $prof_file) =~ .*Arch.* ]]
+        then
+            ZSH_THEME="cliff-arch"
+        else
+            ZSH_THEME="cliff-linux"
+        fi
+    fi
+    unset prof_file
 fi
 
 # Example aliases

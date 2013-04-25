@@ -12,10 +12,10 @@ else
     then
         ZSH_THEME="cliff-linux"
     else
-        if [[ $(cat $prof_file) =~ .*Ubuntu.* ]]
+        if [[ $(cat `echo $prof_file`) =~ .*Ubuntu.* ]]
         then
             ZSH_THEME="cliff-ubuntu"
-        elif [[ $(cat $prof_file) =~ .*Arch.* ]]
+        elif [[ $(cat `echo $prof_file`) =~ .*Arch.* ]]
         then
             ZSH_THEME="cliff-arch"
         else

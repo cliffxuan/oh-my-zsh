@@ -110,6 +110,9 @@ fi
 #tmux
 alias tmux="TERM=screen-256color-bce tmux"
 
+#ssh reverse tunneling
+alias sshl="ssh -R 19999:localhost:22"
+
 #rvm
 if [[ -d $HOME/.rvm ]]
 then

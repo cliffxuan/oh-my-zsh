@@ -149,3 +149,6 @@ function removevm {
     VBoxManage unregistervm $1 --delete
 }
 compctl -K _all_vms removevm
+
+#puppet
+alias puppet-onetime="puppet agent --onetime --verbose --no-daemonize"

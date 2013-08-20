@@ -152,3 +152,8 @@ compctl -K _all_vms removevm
 
 #puppet
 alias puppet-onetime="puppet agent --onetime --verbose --no-daemonize"
+
+#show the rear of a file
+function rear {
+python -c "ff=open('$1', 'rb'); ff.seek(-$2,2); print ff.read($2)"
+}

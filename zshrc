@@ -60,12 +60,12 @@ if [[ $OSTYPE == darwin* ]]
 then
     if [[ -d /usr/local/share/python ]]
     then
-        export PATH=$HOME/bin/:/usr/local/share/python:/usr/local/bin:$PATH
+        export PATH=$HOME/local/bin:$HOME/bin:/usr/local/share/python:/usr/local/bin:$PATH
     else
-        export PATH=$HOME/bin:/usr/local/bin:$PATH
+        export PATH=$HOM/local/bin:$HOME/bin:/usr/local/bin:$PATH
     fi
 else
-    export PATH=$HOME/bin:$PATH
+    export PATH=$HOME/local/bin:$HOME/bin:$PATH
 fi
 
 if [[ $OSTYPE == cygwin ]]

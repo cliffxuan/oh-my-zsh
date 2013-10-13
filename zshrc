@@ -81,10 +81,10 @@ then
        }
     alias open=cygstart
 else
-    if [[ -s $HOME/dev/virtualenvwrapper/virtualenvwrapper.sh ]] 
+    if type virtualenvwrapper.sh 2>&1 >/dev/null
     then
         export VIRTUALENVWRAPPER_PYTHON=$(which python2.7)
-        source $HOME/dev/virtualenvwrapper/virtualenvwrapper.sh
+        source $(which virtualenvwrapper.sh)
     fi
 fi
 

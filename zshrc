@@ -58,12 +58,7 @@ source $ZSH/oh-my-zsh.sh
 # path
 if [[ $OSTYPE == darwin* ]]
 then
-    if [[ -d /usr/local/share/python ]]
-    then
-        export PATH=$HOME/local/bin:$HOME/bin:/usr/local/share/python:/usr/local/bin:$PATH
-    else
-        export PATH=$HOM/local/bin:$HOME/bin:/usr/local/bin:$PATH
-    fi
+    export PATH=$HOME/local/bin:$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 else
     export PATH=$HOME/local/bin:$HOME/bin:$PATH
 fi
@@ -121,6 +116,19 @@ then
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 fi
 
+#rbenv
+if [[ -d $HOME/.rbenv ]]
+then
+    PATH=$HOME/.rbenv/shims:$PATH
+    eval "$(rbenv init -)"
+fi
+
+#npm
+if [[ -d /usr/local/share/npm/bin ]]
+then
+    PATH=/usr/local/share/npm/bin:$PATH
+fi
+
 
 function _all_vms() {
     reply=(`VBoxManage list vms | awk '{gsub("\"",""); print $1}'`)
@@ -152,6 +160,9 @@ compctl -K _all_vms removevm
 
 #puppet
 alias puppet-onetime="puppet agent --onetime --verbose --no-daemonize"
+
+#git
+alias g="git"
 
 #show the rear of a file
 function rear {

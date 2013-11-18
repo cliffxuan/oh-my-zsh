@@ -85,7 +85,7 @@ fi
 
 #vim
 alias uvim="vim -u NONE"
-alias vundle="vim +BundleInstall +qall"
+alias neobundle="vim +NeoBundleInstall +qall"
 
 #GAE
 if [[ $OSTYPE == darwin* ]]

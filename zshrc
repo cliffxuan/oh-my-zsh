@@ -158,13 +158,39 @@ function removevm {
 }
 compctl -K _all_vms removevm
 
-#puppet
-alias puppet-onetime="puppet agent --onetime --verbose --no-daemonize"
-
-#git
-alias g="git"
-
 #show the rear of a file
 function rear {
 python -c "ff=open('$1', 'rb'); ff.seek(-$2,2); print ff.read($2)"
+}
+
+
+#alias
+alias g="git"
+alias t='python $HOME/lib/t/t.py --task-dir $HOME/.tasks --list tasks'
+#puppet
+alias puppet-onetime="puppet agent --onetime --verbose --no-daemonize"
+
+#z
+#. `brew --prefix`/etc/profile.d/z.sh
+
+#web pastebins
+#hastebin.com
+function haste {
+cat <<EOF | python -
+import urllib2
+URL = "http://hastebin.com"
+r = urllib2.urlopen(URL + "/documents", open("$1", 'r').read()).read()
+print "{}/{}".format(URL, r[8:-2])
+EOF
+}
+
+#sprunge.us
+function sprunge {
+#cat <<EOF | python -
+#import urllib2
+#URL = "http://sprunge.us/"
+#r = urllib2.urlopen(URL, 'sprunge={}'.format(open("$1", 'r').read())).read()
+#print r
+#EOF
+cat $1 | curl -F 'sprunge=<-' http://sprunge.us
 }

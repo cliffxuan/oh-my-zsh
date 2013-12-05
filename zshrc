@@ -194,3 +194,22 @@ function sprunge {
 #EOF
 cat $1 | curl -F 'sprunge=<-' http://sprunge.us
 }
+
+function fave {
+cat <<EOF | python -
+import urllib
+import urllib2
+import json
+SITEID = "61555X1384403"
+long_url = "$1"
+if not long_url.endswith('/'):
+    long_url = long_url + '/'
+params = urllib.urlencode({
+    'user': SITEID,
+    'url': long_url
+})
+url = "http://buyth.at/-make?{}".format(params)
+r = urllib2.urlopen(url).read()
+print json.loads(r)['shorturl']
+EOF
+}

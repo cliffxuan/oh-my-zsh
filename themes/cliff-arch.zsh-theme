@@ -1,33 +1,29 @@
-# cliff-mac.zsh-theme
-#
-# Author: Cliff Xuan
-#
-# Created on:		6 Jan, 2013
+autoload colors
+colors
 
-# color vars
-eval my_gray='$FG[237]'
-eval my_orange='$FG[214]'
-
-if [ $UID -eq 0 ]
-then
-    NCOLOR="red"
+#use extended color pallete if available
+if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
+    turquoise="%F{81}"
+    orange="%F{166}"
+    purple="%F{135}"
+    hotpink="%F{161}"
+    limegreen="%F{118}"
 else
-    NCOLOR="green"
+    turquoise="$fg[cyan]"
+    orange="$fg[yellow]"
+    purple="$fg[magenta]"
+    hotpink="$fg[red]"
+    limegreen="$fg[green]"
 fi
-local return_code="%(?..%{$fg[red]%}[%?]%{$reset_color%})"
+local return_code="%(?..%{$hotpink%}[%?]%{$reset_color%})"
 
-# primary prompt
-PROMPT='$my_gray------------------------------------------------------------%{$reset_color%}
-$FG[032]%~\
-$(git_prompt_info) \
-${return_code}$FG[105]%(!.#.»)%{$reset_color%} '
-PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
+PROMPT='
+%{$purple%}[ %t ] [ %{$purple%}%n@%m:%~$(git_prompt_info)%{$orange%}$(rvm_prompt_info)%{$purple%} ]$reset_color
+ $ '
 
-# right prompt
-RPROMPT='$my_gray%n@%m[%*]%{$reset_color%}%'
-
-# git settings
-ZSH_THEME_GIT_PROMPT_PREFIX="$FG[075] ("
-ZSH_THEME_GIT_PROMPT_CLEAN=""
-ZSH_THEME_GIT_PROMPT_DIRTY="$my_orange*%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="$FG[075])%{$reset_color%}"
+RPROMPT='${return_code}'
+# git theming
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$limegreen%}("
+ZSH_THEME_GIT_PROMPT_SUFFIX=")"
+ZSH_THEME_GIT_PROMPT_CLEAN="✔"
+ZSH_THEME_GIT_PROMPT_DIRTY="✗"

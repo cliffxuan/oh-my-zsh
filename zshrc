@@ -213,3 +213,9 @@ r = urllib2.urlopen(url).read()
 print json.loads(r)['shorturl']
 EOF
 }
+
+if [[ $OSTYPE == darwin* ]]
+then
+    alias ec=$(which emacs)
+    alias emacs='open -a /Applications/Emacs.app $@'
+fi
